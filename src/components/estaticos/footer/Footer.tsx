@@ -12,10 +12,11 @@ function Footer(){
         <>
          <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
-                    <Box style={{ backgroundColor: "#E91E63", height: "100px" }}>
+                    <Box style={{ backgroundColor: "#E91E63", height: "140px" }}>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
                             <Typography variant="h5" align="center" gutterBottom style={{ fontSize: 20, color: "white" }}>Siga-nos nas redes sociais </Typography>
                         </Box>
+                        <Box>
                         <Box display="flex" alignItems="center" justifyContent="center" margin="rem" padding="rem">
                             <a href="https://github.com/thaismelim" target="_blank">
                                 <GitHubIcon style={{ fontSize: 40, color: "white" }} />
@@ -26,11 +27,10 @@ function Footer(){
                             <a href="https://www.linkedin.com/in/thais-cristina-melim/" target="_blank">
                                 <LinkedInIcon style={{ fontSize: 40, color: "white" }} />
                             </a>
-                            <Box>
+                            </Box>
+                            <Box> 
                                 <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">Thais Melim</Typography>
-                                </Box>
-                                <Box>
-                             <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2022 Copyright</Typography>
+                                <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2022 Copyright</Typography>
                         </Box>
                     </Box>
                     </Box>
