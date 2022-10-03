@@ -14,7 +14,7 @@ function Footer(){
                 <Grid alignItems="center" item xs={12}>
                     <Box style={{ backgroundColor: "#E91E63", height: "140px" }}>
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ fontSize: 20, color: "white" }}>Siga-nos nas redes sociais </Typography>
+                            <Typography variant="h5" align="center" gutterBottom style={{ fontSize: 15, color: "white" }}>Siga-nos nas redes sociais </Typography>
                         </Box>
                         <Box>
                         <Box display="flex" alignItems="center" justifyContent="center" margin="rem" padding="rem">
