@@ -1,5 +1,6 @@
 import React from 'react';
 import {Typography, Box, Grid, Button} from '@material-ui/core';
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem'
 import './Home.css';
 
 function Home() { 
@@ -21,6 +22,7 @@ function Home() {
         <img src="https://i1.wp.com/seguroviagempro.com.br/wp-content/uploads/2019/02/seguro-viagem-volta-ao-mundo-1.jpg?fit=1360%2C907&ssl=1" alt="Imagem Tela Inicial" className='img'width="675px" height="660px"/>
         </Grid>
         <Grid xs={12} className='postagens'>
+          <TabPostagem/>
         </Grid>
       </Grid>
     </>
