@@ -6,38 +6,42 @@ import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import React from "react";
 import { cyan } from "@mui/material/colors";
 
-
-function Footer(){
-    return (
+function Footer() {
+    return(
         <>
-         <Grid container direction="row" justifyContent="center" alignItems="center">
+            <Grid container direction="row" justifyContent="center" alignItems="center">
                 <Grid alignItems="center" item xs={12}>
-                    <Box style={{ backgroundColor: "#E91E63", height: "140px" }}>
+                    <Box className='box1'>
+
                         <Box paddingTop={1} display="flex" alignItems="center" justifyContent="center">
-                            <Typography variant="h5" align="center" gutterBottom style={{ fontSize: 15, color: "white" }}>Siga-nos nas redes sociais </Typography>
+                            <Typography variant ="h5" align="center" gutterBottom className='texto1'>Siga-nos nas redes sociais</Typography>
                         </Box>
-                        <Box>
-                        <Box display="flex" alignItems="center" justifyContent="center" margin="rem" padding="rem">
+
+                        <Box className='social'>
                             <a href="https://github.com/thaismelim" target="_blank">
-                                <GitHubIcon style={{ fontSize: 40, color: "white" }} />
+                                <GitHubIcon className='github' />
                             </a>
-                            <a href="https://www.instagram.com/thacr.melim/" target="_blank">
-                                <InstagramIcon style={{ fontSize: 40, color: "white" }} />
+                            <a href="https://www.instagram.com/thacr.melim/"target="_blank">
+                                <InstagramIcon className='redes' />
                             </a>
-                            <a href="https://www.linkedin.com/in/thais-cristina-melim/" target="_blank">
-                                <LinkedInIcon style={{ fontSize: 40, color: "white" }} />
+                            <a href="https://www.linkedin.com/in/thais-melim/"target="_blank">
+                                <LinkedInIcon className='redes' />
                             </a>
-                            </Box>
-                            <Box> 
-                                <Typography variant="subtitle2" gutterBottom style={{ color: "white" }} align="center">Thais Melim</Typography>
-                                <Typography variant="subtitle2" align="center" gutterBottom style={{ color: "white" }} >© 2022 Copyright</Typography>
                         </Box>
                     </Box>
+                    <Box className='box2'>
+                        <Box paddingTop={1}>
+                            <Typography variant="subtitle2" align="center" gutterBottom className='texto2'>© 2022 Copyright</Typography>
+                        </Box>
+                        <Box>
+                            <a target="_blank" href="https://brazil.generation.org/">
+                                <Typography variant="subtitle2" gutterBottom className='texto2' align="center">brazil.generation.org</Typography>
+                            </a>
+                        </Box>
                     </Box>
                 </Grid>
             </Grid>
         </>
-
     )
 }
 

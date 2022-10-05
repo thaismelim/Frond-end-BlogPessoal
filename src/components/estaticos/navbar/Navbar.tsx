@@ -1,58 +1,54 @@
-import MenuIcon from '@material-ui/icons/Menu';
-import { AppBar, Box, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
-import React from 'react';
-import { AccountCircle } from '@material-ui/icons';
+import React from "react";
+import {AppBar, Toolbar, Typography, Box} from "@material-ui/core";
+import {Link} from 'react-router-dom';
+import './Navbar.css';
 
+function Navbar() {
+    return(
+        <>
+            <AppBar position="static">
+                <Toolbar className='toolbar'>
+                    <Box className='blogPessoal'>
+                        <Box className='cursor'>
+                            <Typography variant="h5" color="inherit">
+                                Blog Pessoal
+                            </Typography>
+                        </Box>
+                    </Box>
 
-
-function Navbar(){
-    return (
- 
-      <>
-      <AppBar position="static" style={{backgroundColor: "#E91E63"}}>
-        <Toolbar variant="dense">
-       
-          <Box mx={1} style={{cursor: "pointer"}}>
-            <Typography variant="h5">
-            BlogPessoal
-          </Typography>
-          </Box>
-          
-            <Box mx={1} style={{cursor: "pointer"}}>
-              <Typography variant="h6">
-            home
-          </Typography>
-          </Box>
-
-            <Box mx={1} style={{cursor: "pointer"}}>
-              <Typography variant="h6">
-            postagens
-          </Typography>
-          </Box>
-
-            <Box mx={1} style={{cursor: "pointer"}}>
-              <Typography variant="h6">
-            temas
-          </Typography>
-          </Box>
-          
-            <Box mx={1} style={{cursor: "pointer"}}>
-              <Typography variant="h6">
-            cadastrar temas
-          </Typography>
-          </Box>
-
-            <Box mx={1} style={{cursor: "pointer"}}>
-            <Typography variant="h6">
-            logout
-          </Typography>
-          </Box>
-              </Toolbar>
-      </AppBar>
+                    <Box className='menu'>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                Home
+                            </Typography>
+                        </Box>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                Postagens
+                            </Typography>
+                        </Box>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                Temas
+                            </Typography>
+                        </Box>
+                        <Box mx={1} className='cursor'>
+                            <Typography variant="h6" color="inherit">
+                                Cadastrar Tema
+                            </Typography>
+                        </Box>
+                        <Link to='/login' className='text-decorator-none'>
+                            <Box mx={1} className='cursor'>
+                                <Typography variant="h6" color="inherit">
+                                    Logout
+                                </Typography>
+                            </Box>
+                        </Link>
+                    </Box>
+                </Toolbar>
+            </AppBar>
         </>
-
     )
 }
-
 
 export default Navbar;
