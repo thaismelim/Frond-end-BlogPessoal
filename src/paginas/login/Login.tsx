@@ -1,17 +1,49 @@
-import React, { useState, useEffect, ChangeEvent } from 'react';
-import { Grid, Box, Typography, TextField, Button } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
-import { login } from '../../services/Service';
-import UserLogin from '../../models/UserLogin';
-import './Login.css';
-
+import React, { useState, useEffect, ChangeEvent } from "react";
+import { Grid, Box, Typography, TextField, Button } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
+import { login } from "../../services/Service";
+import UserLogin from "../../models/UserLogin";
+import "./Login.css";
 
 function Login() {
+  let navigate = useNavigate();
+  const [token, setToken] = useLocalStorage("token");
+  const [userLogin, setUserLogin] = useState<UserLogin>({
+    id: 0,
+    nome: "",
+    usuario: "",
+    senha: "",
+    foto: "",
+    token: "",
+  });
 
-return(
+  function updatedModel(event: ChangeEvent<HTMLInputElement>) {
+    setUserLogin({
+      ...userLogin,
+      [event.target.name]: event.target.value,
+    });
+  }
 
-<Grid container direction='row' justifyContent='center' alignItems='center'>
+  async function conectar(event: ChangeEvent<HTMLFormElement>) {
+    event.preventDefault();
+    try {
+      await login(`usuarios/logar`, userLogin, setToken);
+
+      alert("Usuário logado com sucesso!");
+    } catch (error) {
+      alert("Dados do usuário inconsistentes. Erro ao logar!");
+    }
+  }
+
+  useEffect(() => {
+    if (token !== "") {
+      navigate("/home");
+    }
+  }, [token]);
+
+  return (
+    <Grid container direction='row' justifyContent='center' alignItems='center'>
       <Grid alignItems='center' xs={6}>
         <Box paddingX={15}>
           <form onSubmit={conectar}>
@@ -47,4 +79,3 @@ return(
 }
 
 export default Login;
-

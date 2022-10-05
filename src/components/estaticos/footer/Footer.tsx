@@ -1,10 +1,10 @@
-import { Grid, Typography } from "@material-ui/core";
-import { Box } from "@mui/material";
+import React from "react";
 import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import React from "react";
-import { cyan } from "@mui/material/colors";
+import {Typography, Box, Grid} from '@material-ui/core';
+import './Footer.css';
+
 
 function Footer() {
     return(
@@ -31,14 +31,10 @@ function Footer() {
                     </Box>
                     <Box className='box2'>
                         <Box paddingTop={1}>
+                            <Typography variant="subtitle2" align="center" gutterBottom className='texto2'>Thais Melim</Typography>
                             <Typography variant="subtitle2" align="center" gutterBottom className='texto2'>© 2022 Copyright</Typography>
                         </Box>
-                        <Box>
-                            <a target="_blank" href="https://brazil.generation.org/">
-                                <Typography variant="subtitle2" gutterBottom className='texto2' align="center">brazil.generation.org</Typography>
-                            </a>
-                        </Box>
-                    </Box>
+                       </Box>
                 </Grid>
             </Grid>
         </>
