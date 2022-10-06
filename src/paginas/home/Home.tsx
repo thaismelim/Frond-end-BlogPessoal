@@ -13,8 +13,8 @@ function Home() {
             <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" className='titulo2'>Compartilhe conosco suas experiências</Typography>
           </Box>
           <Box display="flex" justifyContent="center">
-            <Box marginRight={1}>
-            </Box>
+           <Box marginRight={1}>
+           </Box>
             <Button variant="outlined" className='botao' >Ver Postagens</Button>
           </Box>
         </Grid>

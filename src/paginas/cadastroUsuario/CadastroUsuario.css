@@ -1,5 +1,4 @@
 .imagem2 {
-    background-image: url(https://i.pinimg.com/originals/76/bc/a0/76bca09e76a5e67a92f7e6f45fc0c783.jpg);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
@@ -16,12 +15,12 @@
 }
 
 .btnCancelar {
-    background-color: #e83c1e !important;
+    background-color: #e91E63!important;
     color: white !important;
     margin-right: 20px !important;
 }
 
 .cadastrar {
-    background-color: #8a2be2 !important;
+    background-color: #036BA6 !important;
     color: white !important;
 }
