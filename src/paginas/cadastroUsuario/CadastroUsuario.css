@@ -1,26 +1,21 @@
-.imagem2 {
+.bg-cadastro {
+    min-height: 80vh;
+    background-image: url("https://cdn-0.imagensemoldes.com.br/wp-content/uploads/2020/06/Viagem-Mundo-PNG.png" );
+    width: 0;
     background-repeat: no-repeat;
-    width: 100vh;
-    min-height: 100vh;
-    background-size: cover; 
+    background-size: cover;
     background-position: center;
-}
+     
+     }
 
-.textos2 {
-    font-weight: bold !important;
-}
+     .btnCancelar {
+        background-color: #E91E63!important;
+        color: white !important;
+        margin-right: 20px !important;
+    }
+    
+    .cadastrar {
+        background-color: #3f51b5 !important;
+        color: white !important;
+    }
 
-.text-decorator-none {
-    text-decoration: none;
-}
-
-.btnCancelar {
-    background-color: #e91E63!important;
-    color: white !important;
-    margin-right: 20px !important;
-}
-
-.cadastrar {
-    background-color: #036BA6 !important;
-    color: white !important;
-}

@@ -1,3 +1,5 @@
 .text-decorator-none {
     text-decoration: none;
-}
+    display: inline-block;
+    margin-right: 15px;
+    }

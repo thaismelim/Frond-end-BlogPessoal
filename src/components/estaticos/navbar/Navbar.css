@@ -1,5 +1,5 @@
 .toolbar {
-    background-color:#E91E63;
+    background-color:#3F51B5;
 }
 
 .cursor {
@@ -18,7 +18,6 @@
 
 .menu {
     display: flex;
-    position: absolute;
     right: 2vh;
     gap:1rem;
 }
