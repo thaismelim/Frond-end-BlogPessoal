@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { AppBar, Tab, Tabs, Typography, Box } from '@material-ui/core';
 import { TabContext, TabPanel } from '@material-ui/lab';
-import ListaPostagem from '../listapostagem/ListaPostagem';
+import ListaPostagem from '../listaPostagem/ListaPostagem';
 import './TabPostagem.css';
 
 function TabPostagem() {
@@ -25,7 +25,7 @@ function TabPostagem() {
                     </Box>
                 </TabPanel>
                 <TabPanel value='2'>
-                    <Typography variant='h5' gutterBottom color='textPrimary' component='h5' align='center' className='titulo'>Sobre nós</Typography>
+                    <Typography variant='h5' gutterBottom color='textPrimary' component='h5' align='center' className='titulo'></Typography>
                     <Typography variant='body1' gutterBottom color='textPrimary' align='justify' className='sobre'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero doloribus esse temporibus. Ratione voluptates distinctio provident, iure accusantium suscipit sit quisquam, velit vero veniam earum animi. Enim harum minima beatae!</Typography>
                 </TabPanel>
             </TabContext>

@@ -1,0 +1,17 @@
+.buttonsim {
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 15px;
+    size: large;
+    background-color: #E91E63!important;
+    color: white !important;
+    }
+
+    .buttonnao {
+        text-decoration: none;
+        display: inline-block;
+        margin-left: 15px;
+        size: large;
+        background-color: #3f51b5 !important;
+        color: white !important;
+        }

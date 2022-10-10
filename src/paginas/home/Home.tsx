@@ -1,6 +1,6 @@
 import { Box, Button, Grid, Typography } from '@mui/material';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
-
 import './Home.css';
 
 
@@ -8,7 +8,7 @@ function Home() {
 
   return (
     <>
-      <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#24d2c0" }}>
+      <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#3F51B5" }}>
         <Grid alignItems="center" item xs={6}>
           <Box paddingX={20} >
             <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "white", fontWeight: "bold" }}>Seja bem vindo(a)!</Typography>
@@ -16,8 +16,9 @@ function Home() {
           </Box>
           <Box display="flex" justifyContent="center">
             <Box marginRight={1}>
+              <ModalPostagem/>
             </Box>
-            <Button variant="outlined" style={{ borderColor: "white", backgroundColor: "#3F51B5", color: "white" }}>Ver Postagens</Button>
+            <Button variant="outlined" className='botao'>Ver Postagens</Button>
           </Box>
 
         </Grid>

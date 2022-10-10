@@ -1,8 +1,4 @@
-.titulo {
-    font-size: 6rem;
-    color:#24d2c0 ;
-    text-align: center;
-  }
+
   
   .imagem {
     width: 500px;
@@ -11,4 +7,8 @@
     margin: 0 auto;
   }
   
- 
+  .botao {
+    
+    background-color:#E91E63 !important;
+    color:white !important;
+  }
