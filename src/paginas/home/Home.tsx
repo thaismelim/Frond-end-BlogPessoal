@@ -1,11 +1,37 @@
-import { Box, Button, Grid, Typography } from '@mui/material';
-import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import React, { useEffect } from 'react';
+import {Typography, Box, Grid, Button} from '@material-ui/core';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
+import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
+import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../store/tokens/tokensReducer';
 import './Home.css';
-
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Home() {
 
+    let navigate = useNavigate();
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
+    
+    useEffect(() => {
+      if (token == "") {
+        toast.error('Você precisa estar logado!', {
+          position: 'top-right',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "colored",
+          progress: undefined,
+      });
+          navigate("/login")
+  
+      }
+  }, [token])
   return (
     <>
       <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#3F51B5" }}>
@@ -18,9 +44,10 @@ function Home() {
             <Box marginRight={1}>
               <ModalPostagem/>
             </Box>
+            <Link to= "/posts" className="text-decorator-none">
             <Button variant="outlined" className='botao'>Ver Postagens</Button>
+            </Link>
           </Box>
-
         </Grid>
         <Grid item xs={6} >
           <img src="https://cdn-0.imagensemoldes.com.br/wp-content/uploads/2020/06/Viagem-Mundo-PNG.png" alt="" width="650px" height="440px" />
@@ -32,8 +59,9 @@ function Home() {
       <Grid container justifyContent='center' alignItems='center'>
         <TabPostagem />
       </Grid>
-    </>
-  );
+        </>
+    );
 }
 
 export default Home;
+

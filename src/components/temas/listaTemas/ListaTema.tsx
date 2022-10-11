@@ -2,23 +2,31 @@ import { CardContent, Typography , Box, Card, CardActions, Button, Container} fr
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Tema from '../../../models/Tema'
-import useLocalStorage from 'react-use-localstorage'
 import { busca } from '../../../services/Service'
-
-
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify'
 
 function ListaTema() {
 
-    
-    let navigate = useNavigate()
-
     const [temas, setTemas] = useState<Tema[]>([])
-
-    const [token, setToken] = useLocalStorage('token') 
+    let navigate = useNavigate()
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+      (state) => state.tokens
+    );
 
     useEffect(() => {
         if(token === '') {
-            alert('Você precisa estar logado.')
+          toast.error('Você precisa estar logado', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
             navigate('/login') 
         }
     }, [token])
@@ -57,30 +65,14 @@ function ListaTema() {
               </CardContent>
               <CardActions>
                 <Box display="flex" justifyContent="center" mb={1.5}>
-                  <Link
-                    to={`/atualizarTema/${tema.id}`}
-                    className="text-decorator-none"
-                  >
+                  <Link to={`/atualizarTema/${tema.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button
-                        variant="contained"
-                        className="marginLeft"
-                        size="small"
-                        color="primary"
-                      >
-                        atualizar
-                      </Button>
+                      <Button variant="contained" className="marginLeft" size='small' color='primary'>atualizar</Button>
                     </Box>
                   </Link>
                   <Link to={`/apagarTema/${tema.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button
-                        variant="contained"
-                        size="small"
-                        color="secondary"
-                      >
-                        deletar
-                      </Button>
+                      <Button variant="contained" size='small' color="secondary">deletar</Button>
                     </Box>
                   </Link>
                 </Box>

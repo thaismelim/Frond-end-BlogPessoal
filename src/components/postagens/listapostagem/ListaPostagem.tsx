@@ -3,21 +3,32 @@ import { Box, Card, CardActions, CardContent, Button, Typography } from '@materi
 import { busca } from '../../../services/Service';
 import React, {useState, useEffect} from 'react';
 import Postagem from '../../../models/Postagem';
-import useLocalStorage from 'react-use-localstorage';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { useSelector } from 'react-redux';
 import './ListaPostagem.css';
+import { toast } from 'react-toastify';
 
 
 
 function ListaPostagem() {
-
-    let navigate = useNavigate()
-
     const [posts, setPosts] = useState<Postagem[]>([])
-    const [token, setToken] = useLocalStorage('token') 
+    let navigate = useNavigate()
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     useEffect(() => {
         if(token === '') {
-            alert('Você precisa estar logado.')
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             navigate('/login') 
         }
     }, [token])

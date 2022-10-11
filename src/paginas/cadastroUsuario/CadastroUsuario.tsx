@@ -2,6 +2,7 @@ import { Typography } from '@material-ui/core';
 import { Box, Button, Grid, TextField } from '@mui/material';
 import { ChangeEvent, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import Usuario from '../../models/User';
 import { cadastroUsuario } from '../../services/Service';
 import './CadastroUsuario.css';
@@ -15,7 +16,6 @@ function CadastroUsuario() {
     setConfirmarSenha(event.target.value);
   }
 
-  // One way binding
   const [user, setUser] = useState<Usuario>({
     id: 0,
     nome: '',
@@ -37,30 +37,34 @@ function CadastroUsuario() {
     });
   }
 
-  //  == > comparação basica => 2 = '2'
-  //  === > comparação estrita => 2 != '2'
-
-  async function cadastrar(event: ChangeEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (confirmarSenha === user.senha && user.senha.length >= 8) {
-      try {
-        await cadastroUsuario('usuarios/cadastrar', user, setUserResult);
-        alert('Usuário criado com sucesso. Efetue seu login, por favor.');
-      } catch (error) {
-        alert('Falha ao cadastrar o usuário. Por favor, confira os campos');
-      }
-    } else {
-      alert(
-        'Senhas divergentes, ou menores que 8 caracteres. Por favor, verifique os campos.'
-      );
+  async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if(confirmarSenha == user.senha){
+    cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
+    toast.success('Usuario cadastrado com sucesso', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+        });
+        
+    }else{
+        toast.error('Dados inconsistentes. Favor verificar as informações de cadastro.', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+            });
     }
-  }
-
-  useEffect(() => {
-    if (userResult.id !== 0) {
-      navigate('/login');
-    }
-  }, [userResult]);
+}
 
   return (
     <>
@@ -68,7 +72,7 @@ function CadastroUsuario() {
         <Grid item xs={6} className="bg-cadastro"></Grid>
         <Grid container xs={6} justifyContent="center">
           <Grid item xs={8} justifyContent="center">
-            <form onSubmit={cadastrar}>
+            <form onSubmit={onSubmit}>
               <Typography variant="h2">Cadastre-se</Typography>
 
               <TextField

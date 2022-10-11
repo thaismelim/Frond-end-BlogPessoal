@@ -1,5 +1,4 @@
 
-  
   .imagem {
     width: 500px;
     height: 500px;
@@ -9,6 +8,14 @@
   
   .botao {
     
+    border-color:#E91E63 !important;
     background-color:#E91E63 !important;
     color:white !important;
+    justify-content: center;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  .text-decorator-none{
+    text-decoration: none;
   }

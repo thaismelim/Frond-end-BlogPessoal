@@ -11,11 +11,18 @@ import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import ListaTema from './components/temas/listaTemas/ListaTema';
 import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
 import DeletarPost from './components/postagens/deletarPostagem/DeletarPostagem';
+import { Provider } from 'react-redux';
+import {ToastContainer} from 'react-toastify';
+import store from './store/store';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './App.css';
 
 
 function App() {
   return(
+    <Provider store={store}>
+      <ToastContainer/>
     <BrowserRouter>
       <Navbar />
         <div style={{ minHeight: '100vh' }}>
@@ -36,6 +43,7 @@ function App() {
         </div>
       <Footer />
     </ BrowserRouter >
+    </Provider>
   )
 }
 
