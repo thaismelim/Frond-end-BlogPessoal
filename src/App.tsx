@@ -16,7 +16,7 @@ import store from './store/store';
 import 'react-toastify/dist/ReactToastify.css';
 import Perfil from './components/perfil/Perfil';
 import { useState } from 'react';
-import ListaPostagem from './components/postagens/listadospostagem/ListaPostagem';
+import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
 import './App.css';
 
 
