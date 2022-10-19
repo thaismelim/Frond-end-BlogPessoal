@@ -1,0 +1,23 @@
+.toolbar {
+    background-color:#3F51B5;
+}
+
+.cursor {
+    cursor: pointer;
+    color: white;
+}
+
+.text-decorator-none {
+    text-decoration: none;
+}
+
+.blogPessoal {
+    display: flex;
+    margin-right: 40vh;
+}
+
+.menu {
+    display: flex;
+    right: 1vh;
+    gap:.0rem;
+}

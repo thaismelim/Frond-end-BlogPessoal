@@ -1,0 +1,21 @@
+.textos {
+    font-weight: bold !important;
+}
+
+.imagem {
+    background-image: url("https://cdn-0.imagensemoldes.com.br/wp-content/uploads/2020/06/Viagem-Mundo-PNG.png");
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 100vh;
+    background-size: cover; 
+    background-position: center;
+}
+
+.text-decorator-none {
+    text-decoration: none;
+}
+
+.logar {
+    background-color:#E91E63 !important;
+    color: white !important;
+}
