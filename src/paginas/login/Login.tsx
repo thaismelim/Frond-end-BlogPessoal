@@ -1,24 +1,36 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
-import { Grid, Box, Typography, TextField, Button } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../services/Service";
-import UserLogin from "../../models/UserLogin";
+import { Typography, Button, Hidden, InputAdornment } from '@material-ui/core';
+import { AccountCircle } from '@material-ui/icons';
+import { Box, Grid, TextField } from '@mui/material';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addToken } from "../../store/tokens/actions";
-import "./Login.css";
-
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import UsuarioLogin from '../../models/UserLogin';
+import { login } from '../../services/Service';
+import { addToken, addId } from '../../store/tokens/actions';
+import './Login.css';
 
 function Login() {
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const [token, setToken] = useState('');
-  const [userLogin, setUserLogin] = useState<UserLogin>({
+
+  const [userLogin, setUserLogin] = useState<UsuarioLogin>({
     id: 0,
-    nome: "",
-    usuario: "",
-    senha: "",
-    foto: "",
-    token: "",
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: '',
+    token: '',
+  });
+
+  const [respUserLogin, setRespUserLogin] = useState<UsuarioLogin>({
+    id: 0,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: '',
+    token: '',
   });
 
   function updatedModel(event: ChangeEvent<HTMLInputElement>) {
@@ -28,23 +40,54 @@ function Login() {
     });
   }
 
+   useEffect(() => {
+    if (
+      userLogin.usuario !== '' &&
+      userLogin.senha !== '' &&
+      userLogin.senha.length >= 8
+    ) {
+      setForm(true);
+    }
+  }, [userLogin]);
+
+  const [form, setForm] = useState(false);
+
   async function conectar(event: ChangeEvent<HTMLFormElement>) {
     event.preventDefault();
     try {
-      await login(`usuarios/logar`, userLogin, setToken);
+      await login('usuarios/logar', userLogin, setRespUserLogin);
+      toast.success('Usuario conectado. tamo juntão', {
+        theme: 'colored',
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
 
-      alert("Usuário logado com sucesso!");
     } catch (error) {
-      alert("Dados do usuário inconsistentes. Erro ao logar!");
+      toast.error(`Deu ruim.`, {
+        theme: 'colored',
+        autoClose: 2000,
+        hideProgressBar: true,
+      });
     }
   }
 
   useEffect(() => {
-    if (token !== "") {
+    if (token !== '') {
       dispatch(addToken(token));
-      navigate("/home");
+      navigate('/home');
     }
   }, [token]);
+
+
+  useEffect(() => {
+    if (respUserLogin.token !== '') {
+      dispatch(addToken(respUserLogin.token));
+      dispatch(addId(respUserLogin.id.toString()));
+      navigate('/home');
+    }
+  }, [respUserLogin.token]);
+
+
 
   return (
     <Grid container direction='row' justifyContent='center' alignItems='center'>

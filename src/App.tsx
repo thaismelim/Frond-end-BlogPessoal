@@ -15,11 +15,14 @@ import { Provider } from 'react-redux';
 import {ToastContainer} from 'react-toastify';
 import store from './store/store';
 import 'react-toastify/dist/ReactToastify.css';
+import Perfil from './components/perfil/Perfil';
+import { useState } from 'react';
 
 import './App.css';
 
 
 function App() {
+  const [inputText, setInputText] = useState("");
   return(
     <Provider store={store}>
       <ToastContainer/>
@@ -30,15 +33,16 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/perfil" element={<Perfil />} />
             <Route path="/cadastrousuario" element={<CadastroUsuario />} />
             <Route path="/temas" element={<ListaTema />} />
             <Route path="/posts" element={<ListaPostagem />} />
             <Route path="/formularioPostagem" element={<CadastroPost />} />
             <Route path="/formularioPostagem/:id" element={<CadastroPost />} />
             <Route path="/formularioTema" element={<CadastroTema />} />
-            <Route path="/formularioTema/:id" element={<CadastroTema />} />
+            <Route path="/atualizarTema/:id" element={<CadastroTema />} />
             <Route path="/deletarPostagem/:id" element={<DeletarPost />} />
-            <Route path="/deletarTema/:id" element={<DeletarTema />} />
+            <Route path="/apagarTema/:id" element={<DeletarTema />} />
           </Routes>
         </div>
       <Footer />

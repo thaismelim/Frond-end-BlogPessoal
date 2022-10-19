@@ -1,11 +1,12 @@
 import React from "react";
-import {AppBar, Toolbar, Typography, Box} from "@material-ui/core";
+import {AppBar, Toolbar, Typography} from "@material-ui/core";
 import {Link,  useNavigate} from 'react-router-dom';
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import { useDispatch, useSelector } from "react-redux";
 import './Navbar.css';
 import { addToken } from "../../../store/tokens/actions";
 import {toast} from 'react-toastify';
+import { Box } from "@mui/material";
 
 function Navbar() {
 
@@ -38,7 +39,7 @@ function Navbar() {
         <Toolbar className='toolbar'>
             <Box className='blogPessoal'>
                 <Box className='cursor'>
-                    <Typography variant="h5" color="inherit">
+                    <Typography variant="h6" color="inherit">
                         Blog Pessoal
                     </Typography>
                 </Box>

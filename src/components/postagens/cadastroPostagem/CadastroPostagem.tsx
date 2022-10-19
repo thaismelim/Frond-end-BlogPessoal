@@ -8,6 +8,7 @@ import { busca, buscaId, post, put } from '../../../services/Service';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import Usuario from '../../../models/User';
 
 function CadastroPostagem() {
   let navigate = useNavigate();
@@ -34,6 +35,18 @@ function CadastroPostagem() {
       }
   }, [token])
 
+  const userId = useSelector<TokenState, TokenState['id']>(
+    (state) => state.id
+  )
+
+  const [usuario, setUsuario] = useState<Usuario>({
+    id:+userId,
+    nome: '',
+    usuario: '',
+    senha: '',
+    foto: ''
+  })
+
   const [tema, setTema] = useState<Tema>(
       {
           id: 0,
@@ -45,13 +58,15 @@ function CadastroPostagem() {
     texto: '',
     data: '',
     tema: null,
+    usuario: null
   });
 
   useEffect(() => { 
       setPostagem({
           ...postagem,
-          tema: tema
-      })
+          tema: tema,
+          usuario: usuario
+      });
   }, [tema])
 
   useEffect(() => {
@@ -62,7 +77,7 @@ function CadastroPostagem() {
   }, [id])
 
   async function getTemas() {
-      await busca("/tema", setTemas, {
+      await busca("/temas", setTemas, {
           headers: {
               'Authorization': token
           }

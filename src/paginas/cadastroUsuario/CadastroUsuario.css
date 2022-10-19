@@ -1,7 +1,8 @@
 .bg-cadastro {
-    min-height: 80vh;
+    
     background-image: url("https://cdn-0.imagensemoldes.com.br/wp-content/uploads/2020/06/Viagem-Mundo-PNG.png" );
     width: 0;
+    min-height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

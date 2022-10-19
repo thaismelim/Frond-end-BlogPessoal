@@ -1,11 +1,6 @@
 .box1 {
     background-color:#3f51b5;
-    height:100px;
-}
-
-.box2 {
-    background-color:white;
-    height:40px;
+    padding: auto;
 }
 
 .redes {
@@ -29,6 +24,3 @@
     color:white;
 }
 
-.texto2 {
-    color:"#24d2c0";
-}

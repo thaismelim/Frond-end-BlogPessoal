@@ -1,4 +1,4 @@
-import { CardContent, Typography , Box, Card, CardActions, Button, Container} from '@mui/material'
+import { CardContent, Typography , Card, CardActions, Button, Container} from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Tema from '../../../models/Tema'
@@ -6,6 +6,7 @@ import { busca } from '../../../services/Service'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify'
+import { Box } from "@mui/material";
 
 function ListaTema() {
 
@@ -72,7 +73,7 @@ function ListaTema() {
                   </Link>
                   <Link to={`/apagarTema/${tema.id}`} className="text-decorator-none">
                     <Box mx={1}>
-                      <Button variant="contained" size='small' color="secondary">deletar</Button>
+                      <Button variant="contained" size='small' className="color">deletar</Button>
                     </Box>
                   </Link>
                 </Box>

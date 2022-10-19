@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Typography, Box, Grid, Button} from '@material-ui/core';
+import {Typography, Grid, Button} from '@material-ui/core';
 import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import { useNavigate } from 'react-router';
@@ -8,6 +8,7 @@ import { TokenState } from '../../store/tokens/tokensReducer';
 import './Home.css';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Box } from "@mui/material";
 
 function Home() {
 
@@ -37,8 +38,8 @@ function Home() {
       <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "#3F51B5" }}>
         <Grid alignItems="center" item xs={6}>
           <Box paddingX={20} >
-            <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "white", fontWeight: "bold" }}>Seja bem vindo(a)!</Typography>
-            <Typography variant="h5" gutterBottom color="textPrimary" component="h5" align="center" style={{ color: "white", fontWeight: "bold" }}>compartilhe conosco suas experiências!</Typography>
+            <Typography variant="h4" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "white", fontWeight: "bold" }}>Seja bem vindo(a)!</Typography>
+            <Typography variant="h6" gutterBottom color="textPrimary" component="h5" align="center" style={{ color: "white", fontWeight: "bold" }}>compartilhe conosco suas experiências!</Typography>
           </Box>
           <Box display="flex" justifyContent="center">
             <Box marginRight={1}>
